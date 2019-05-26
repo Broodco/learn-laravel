@@ -26,4 +26,29 @@ Then return the View from that controller.
 
 ## Episode 7 - Databases and Migrations
 
-Use .env to configure database tutorial
+Use .env to configure database connection.
+Use of _php artisan migrate_ with the options _rollback_ and _fresh_
+Creation of a new table in the _migrations_ folder, using _php artisan make:migration_ and completing the Schema.
+
+## Episode 8 - Eloquent, Namespacing and MVC
+
+Use the Eloquent syntax to create new entries of a table, using a Model.
+Query from the Database in the controller (with Eloquent).
+
+## Episode 9 - Directory Structure
+
+-   .env : Store and import configuration, never commited
+-   .env.example : Example config, commited file
+-   vendor/ : Composer dependencies (like node_modules)
+-   tests/ : Test files
+-   storage/ : Storage files and compiled Vue dir
+-   routes/web : Classic web routes
+-   routes/console : Artisan commands
+-   routes/channels : Broadcasting channels (to communicate between server and front without reload?)
+-   routes/api : Self explanatory
+-   ressources/ : Front-end stuff
+-   public/ : Compiled files and images
+-   database/ : Storage migrations, seeds and factories(place to generate data from a model)
+-   config/ : Config files stored. Those are set from the _.env_ file.
+-   bootstrap/ : Behind the Scenes stuff from Laravel.
+-   app/ : Where we store Controllers, Models

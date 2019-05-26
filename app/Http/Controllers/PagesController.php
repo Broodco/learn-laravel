@@ -25,4 +25,10 @@ class PagesController extends Controller
     {
         return view('contact');
     }
+
+    public function project()
+    {
+        $projects = \App\Project::all();
+        return view('project')->withProjects($projects);
+    }
 }
