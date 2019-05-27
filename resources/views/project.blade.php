@@ -9,6 +9,9 @@
 @endsection
 
 @section('content')
+    <div>
+        <a href="/projects/create">Create a new project</a>
+    </div>
     <ul>
         @foreach($projects as $project)
             <li>{{ $project->title }}</li>

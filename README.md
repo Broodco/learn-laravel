@@ -52,3 +52,8 @@ Query from the Database in the controller (with Eloquent).
 -   config/ : Config files stored. Those are set from the _.env_ file.
 -   bootstrap/ : Behind the Scenes stuff from Laravel.
 -   app/ : Where we store Controllers, Models
+
+## Episode 10 - Form Handling and CSRF Protection
+
+Created a simple HTML form and created a POST request. Called a new Controller and stored the POST request content into the database using the Eloquent syntax, then redirected.
+Learned a bit about CSRF protection (create a csrf field in the form i.o. to allow our form to pass the VerifyCsrfToken middleware).
