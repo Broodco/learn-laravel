@@ -9,24 +9,24 @@
 @endsection
 
 @section('content')
-    <form method="POST" action="/projects/{{$project->id}}">
+    <form method="POST" action="/projects/{{$project->id}}" class="ui form">
         @csrf
         @method('PATCH')
-        <div>
+        <div clas="field">
             <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Project title" value="{{$project->title}}"/>
+        <input type="text" name="title" placeholder="Project title" value="{{$project->title}}" required/>
         </div>
-        <div>
+        <div class="field">
             <label for="description">Description</label>
-        <textarea name="description">{{$project->description}}</textarea>
+        <textarea name="description" required>{{$project->description}}</textarea>
         </div>
         <div>
-            <button type="submit">Update Project</button>
+            <button type="submit" class="ui blue submit button">Update Project</button>
         </div>
     </form>
     <form method="POST" action="/projects/{{$project->id}}">
         @csrf
         @method('DELETE')
-        <button type="submit">Delete Project</button>
+        <button type="submit" class="ui submit button">Delete Project</button>
     </form>
 @endsection
