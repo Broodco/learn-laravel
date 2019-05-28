@@ -25,15 +25,4 @@ class PagesController extends Controller
     {
         return view('contact');
     }
-
-    public function projects()
-    {
-        $projects = \App\Project::all();
-        return view('project')->withProjects($projects);
-    }
-
-    public function createProject()
-    {
-        return view('createProject');
-    }
 }

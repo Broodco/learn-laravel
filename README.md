@@ -57,3 +57,27 @@ Query from the Database in the controller (with Eloquent).
 
 Created a simple HTML form and created a POST request. Called a new Controller and stored the POST request content into the database using the Eloquent syntax, then redirected.
 Learned a bit about CSRF protection (create a csrf field in the form i.o. to allow our form to pass the VerifyCsrfToken middleware).
+
+## Episode 11 - Routing Conventions
+
+Action on the resources :
+
+-   GET /projects (index)
+-   GET /projects/create (create)
+-   GET /projects/id (show)
+-   POST /project (store)
+-   GET /projects/id/edit (edit)
+-   PATCH /projects/id (update)
+-   DELETE /projects/id (destroy)
+
+Learned about Resource Controller and automatic resource routing. (it's magic) + automatic REST controller linked to a resource (and model)
+
+## Episode 12 - Patch requests
+
+Created an _edit_ form.
+Learned about the _@method('PATCH')_ inserted at the start of the form to inform the controller that this is a PATCH request.
+
+## Episode 13 - Delete requests
+
+Creation of a _delete_ form and call of _Project::find(\$id)->delete();_ method.
+Also, learned about _findOrFail_ method.
