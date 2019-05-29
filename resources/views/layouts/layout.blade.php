@@ -11,23 +11,23 @@
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
         }
         body {
             padding: 10px;
+            background-color: ghostwhite;
         }
-        .links{
-            display:flex;
-            flex-direction: row;
-            justify-content: space-around;
+        body > .grid {
+            height: 100%;
+        }
+        .ui.grid {
+            margin-top : 20px;
+        }
+        .column {
+            max-width: 800px;
         }
         li{
             list-style: none;
-        }
-        .header {
-            display:flex;
-            flex-direction: row;
-            justify-content: space-around;
-            text-align: center;
         }
         a{
             cursor: pointer !important;
@@ -35,25 +35,32 @@
         a:hover{
             color: black;
         }
-        h1 {
-            padding : 10px;
+        h2{
+            text-align: center;
             padding-bottom: 20px;
+        }
+        .isCompleted {
+            text-decoration: line-through;
         }
     </style>
 </head>
 
 <body>
-    <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/projects">Projects</a></li>
-    </ul>
-    <div class="header">
-        @yield('header')
+    <div class="ui fixed inverted menu">
+        <a class="item" href="/">Home</a>
+        <a class="item" href="/about">About</a>
+        <a class="item" href="/contact">Contact</a>
+        <a class="item" href="/projects">Projects</a>
     </div>
-    <div class="content">
-        @yield('content')
+    <div class="ui aligned center aligned grid">
+        <div class="column">
+            <div>
+                @yield('header')
+            </div>
+            <div>
+                @yield('content')
+            </div>
+        </div>
     </div>
 </body>
 

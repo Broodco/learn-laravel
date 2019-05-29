@@ -5,18 +5,23 @@
 @endsection
 
 @section('header')
-    <h1>Projects</h1>
+    <div class="ui basic segment">
+        <h2 class="ui header">Projects</h2>
+    </div>
 @endsection
 
 @section('content')
-    <div>
-        <a href="/projects/create">Create a new project</a>
-    </div>
-    <ul>
+    <div class='ui relaxed celled animated list'>
         @foreach($projects as $project)
-            <a href="/projects/{{$project->id}}">
-                <li>{{ $project->title }}</li>
-            </a>
+        <a class='item' href="/projects/{{$project->id}}">
+            <div class="content">
+                <div class='header'>{{ $project->title }}</div>
+                <div class="description">{{ $project->description }}</div>
+            </div>
+        </a>
         @endforeach
-    </ul>
+    </div>
+    <a href="/projects/create">
+        <button class="ui button">Create a new project</button>
+    </a>
 @endsection

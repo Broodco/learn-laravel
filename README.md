@@ -133,3 +133,48 @@ replaces a 5 lines function.
             'title' => ['required', 'min:3', 'max:255'],
             'description' => 'required'
         ]);
+
+## Lesson 16 - Eloquent Relationships
+
+Added Eloquent relationships to the models.
+
+For example, a _Project_ **hasMany** _Tasks_, and a _Task_ **belongsTo** a _Project_.
+
+The way to implement that is to define a function in the model, for example :
+
+    class Task extends Model
+    {
+        public function project()
+        {
+            return $this->belongsTo(Project::class);
+        }
+    }
+
+## Lesson 17 - Form Action Considerations
+
+Basically did a todolist. With conditional classes and such.
+
+## Lesson 18 - Create new Project Tasks
+
+Created a method adding a _Task_ in the _Project_ model and called that method from the _ProjectTasksController_.
+
+    // ProjectTasksController
+    public function store(Request $request, Project $project)
+    {
+        $project->addTask($request->description, $request->project_id);
+
+        return back();
+    }
+
+    // Project model
+    public function addTask($description, $project_id)
+    {
+        return Task::create([
+            'project_id' => $project_id,
+            'description' => $description
+        ]);
+    }
+
+Also, created an **errors** _php component_ which is included in the forms. It contains a condition, showing error messages if needed.
+
+## Lesson 19 - Encapsulation

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignment;
+use App\Task;
+use App\Project;
 use Illuminate\Http\Request;
 
-class AssignmentsController extends Controller
+class ProjectTasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,18 +34,24 @@ class AssignmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
-        //
+        $attributes = request()->validate([
+            'description' => 'required',
+            'project_id' => 'required'
+        ]);
+        $project->addTask($attributes['description'], $attributes['project_id']);
+
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Assignment $assignment)
+    public function show(Task $task)
     {
         //
     }
@@ -52,10 +59,10 @@ class AssignmentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Assignment $assignment)
+    public function edit(Task $task)
     {
         //
     }
@@ -64,21 +71,24 @@ class AssignmentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Assignment $assignment)
+    public function update(Request $request, Task $task)
     {
-        //
+        $task->update([
+            'completed' => $request->has('completed')
+        ]);
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Assignment $assignment)
+    public function destroy(Task $task)
     {
         //
     }

@@ -46,7 +46,6 @@ class ProjectsController extends Controller
 
         // Compact syntax
         Project::create($validated);
-
         return redirect('/projects');
     }
 

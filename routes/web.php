@@ -35,7 +35,5 @@ Route::patch('/projects/{project}', 'ProjectsController@update');
 // Project deletion routes
 Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
-
-
 // Laravel automatic routing -> Similar to the Project code above
-Route::resource('assignments', 'AssignmentsController');
+Route::resource('tasks', 'ProjectTasksController');

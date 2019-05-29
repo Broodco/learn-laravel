@@ -5,29 +5,23 @@
 @endsection
 
 @section('header')
-    <h1>Create a new Project</h1>
+    <div class="ui basic segment">
+        <h2 class='ui header'>Create a new Project</h2>
+    </div>
 @endsection
 
 @section('content')
-    <form method="POST" action="/projects">
-        {{ csrf_field() }}
-        <div>
-            <input type="text" name="title" placeholder="Project title" required value="{{ old('title') }}" />
+<div class="ui container segment">
+    <form method="POST" action="/projects" class="ui form">
+        @csrf
+        <div class="field {{ $errors->has('title') ? 'error' : '' }}" >
+            <input type="text" name="title" placeholder="Project title" value="{{ old('title') }}" />
         </div>
-        <div>
-            <textarea name="description" placeholder="Project description" required >{{ old('description') }}</textarea>
+        <div class="field {{ $errors->has('description') ? 'error' : '' }}" >
+            <textarea name="description" placeholder="Project description" >{{ old('description') }}</textarea>
         </div>
-        <div>
-            <button type="submit">Submit new Project</button>
-        </div>
-        @if ($errors->any())
-            <div>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <button class="ui button" type="submit">Submit new Project</button>
+        @include('errors')
     </form>
+</div>
 @endsection
