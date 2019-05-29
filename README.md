@@ -178,3 +178,12 @@ Created a method adding a _Task_ in the _Project_ model and called that method f
 Also, created an **errors** _php component_ which is included in the forms. It contains a condition, showing error messages if needed.
 
 ## Lesson 19 - Encapsulation
+
+Use of _Model_ methods instead of function in the Controller. A chapter mostly about good practises.
+
+## Lesson 20 - Creation of specialized Controller
+
+Here, instad of using the _ProjectTasksController_ (originally used to create tasks associated to a project) in order to toggle the completion of a task, we create a new controller named _CompletedTasksController_ whose sole purpose is to manage the completion state of tasks.
+This method is, according to the Laracasts teacher, another approach a bit more respectful of REST principles.
+
+## Lesson 21 -

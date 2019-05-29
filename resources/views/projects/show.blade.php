@@ -21,9 +21,11 @@
         <div class="ui container segments">
             @foreach ($project->tasks as $task)
                 <li class="ui segment">
-                <form class="ui form" method="POST" action="/tasks/{{ $task->id }}">
-                        @method('PATCH')
-                        @csrf
+                <form class="ui form" method="POST" action="/completed_tasks/{{ $task->id }}">
+                    @if ($task->completed)
+                        @method('DELETE')
+                    @endif
+                    @csrf
                         <div class="inline field">
                             <div class="ui checkbox">
                                 <input type="checkbox" name="completed" onChange="this.form.submit()" {{ $task->completed ? 'checked' : ''}}>

@@ -37,3 +37,7 @@ Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
 // Laravel automatic routing -> Similar to the Project code above
 Route::resource('tasks', 'ProjectTasksController');
+
+// Tasks completion routes
+Route::post('/completed_tasks/{task}', 'CompletedTasksController@store');
+Route::delete('/completed_tasks/{task}', 'CompletedTasksController@destroy');

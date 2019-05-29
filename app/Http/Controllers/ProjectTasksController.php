@@ -40,31 +40,9 @@ class ProjectTasksController extends Controller
             'description' => 'required',
             'project_id' => 'required'
         ]);
-        $project->addTask($attributes['description'], $attributes['project_id']);
+        $project->addTask($attributes);
 
         return back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Task $task)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
-    {
-        //
     }
 
     /**
@@ -76,10 +54,8 @@ class ProjectTasksController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        $task->update([
-            'completed' => $request->has('completed')
-        ]);
-        return back();
+        $method = $request->has('completed') ? 'complete' : 'incomplete';
+        $task->$method();
     }
 
     /**
